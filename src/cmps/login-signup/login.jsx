@@ -95,7 +95,7 @@ export const Login = ({ setIsLogin }) => {
                             </Grid> */}
                             <Grid item>
                                 <button onClick={() => setIsLogin(false)} variant="body2"
-                                    className='link-btn'>
+                                    className="link-btn">
                                     {"Don't have an account? Sign Up"}
                                 </button>
                             </Grid>

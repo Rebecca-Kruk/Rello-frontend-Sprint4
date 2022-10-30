@@ -79,7 +79,7 @@ export const LabelsModalContainer = ({ groupId, taskId, closeModal, className })
 
     return (
         <div
-            className={`dynamic-modal labels-modal-container ${className ? className : ''}`}
+            className={`dynamic-modal labels-modal-container ${className ? className : ""}`}
             onClick={(ev) => ev.stopPropagation()}
         >
             <div className="dynamic-header">

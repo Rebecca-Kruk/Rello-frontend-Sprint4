@@ -49,7 +49,7 @@ export const AttachmentModal = ({ groupId, taskId, closeModal, className }) => {
 
     return (
         <div
-            className={`dynamic-modal attachment-modal ${className ? className : ''}`}
+            className={`dynamic-modal attachment-modal ${className ? className : ""}`}
             onClick={(ev) => ev.stopPropagation()}
         >
             <div className="dynamic-header">

@@ -15,7 +15,6 @@
 @import "pages/login-signup";
 @import "pages/user-profile";
 @import "pages/template-page";
-@import "pages/task-details";
 
 // Components
 @import "cmps/app-footer";
@@ -24,6 +23,18 @@
 @import "cmps/main-header";
 @import "cmps/user-modal";
 @import "cmps/loader";
+
+// home
+@import "cmps/home/home-header";
+@import "cmps/home/home-demonstration";
+@import "cmps/home/home-features";
+@import "cmps/home/home-hero";
+
+// template-page
+@import "cmps/template-page/template-list";
+@import "cmps/template-page/template-preview";
+@import "cmps/template-page/add-board-modal";
+
 // board
 @import "cmps/board/board-secondary-header";
 @import "cmps/board/board-side-menu";
@@ -31,31 +42,22 @@
 @import "cmps/board/board_bg_img_list";
 @import "cmps/board/board_bg_color_list";
 @import "cmps/board/board-side-nav";
-@import "cmps/board/group-list";
-@import "cmps/board/group-preview";
-@import "cmps/board/group-action-modal";
-@import "cmps/board/task-list";
-@import "cmps/board/task-edit-modal";
-@import "cmps/board/task-filter";
-@import "cmps/board/task-preview";
-@import "cmps/board/task-preview-labels";
-@import "cmps/board/task-preview-badge";
-@import "cmps/board/form-add.scss";
 @import "cmps/board/board-members-modal";
-// home
-@import "cmps/home/home-header";
-@import "cmps/home/home-demonstration";
-@import "cmps/home/home-features";
-@import "cmps/home/home-hero";
-// template-page
-@import "cmps/template-page/template-list";
-@import "cmps/template-page/template-preview";
-@import "cmps/template-page/add-board-modal";
-// user-profile
-@import "cmps/user-profile/user-header";
-@import "cmps/user-profile/user-hero";
-@import "cmps/user-profile/user-edit";
+@import "cmps/board/form-add.scss";
+// board/group
+@import "cmps/board/group/group-list";
+@import "cmps/board/group/group-preview";
+@import "cmps/board/group/group-action-modal";
+// board/task
+@import "cmps/board/task/task-list";
+@import "cmps/board/task/task-edit-modal";
+@import "cmps/board/task/task-filter";
+@import "cmps/board/task/task-preview";
+@import "cmps/board/task/task-preview-labels";
+@import "cmps/board/task/task-preview-badge";
+
 // task-details
+@import "cmps/task-details/task-details";
 @import "cmps/task-details/task-sidebar";
 @import "cmps/task-details/cover";
 @import "cmps/task-details/task-title";
@@ -63,23 +65,33 @@
 @import "cmps/task-details/labels";
 @import "cmps/task-details/date";
 @import "cmps/task-details/description";
+// task-details/attachment
 @import "cmps/task-details/attachment/attachment-list";
 @import "cmps/task-details/attachment/attachment";
 @import "cmps/task-details/attachment/attachment-edit-modal";
+// task-details/checklist
 @import "cmps/task-details/checklist/checklist-list";
 @import "cmps/task-details/checklist/checklist";
 @import "cmps/task-details/checklist/todo-list";
 @import "cmps/task-details/checklist/todo";
+
 // dynamic-modal 
 @import "cmps/dynamic-modal/dynamic-modal";
 @import "cmps/dynamic-modal/members-modal";
-@import "cmps/dynamic-modal/labels/labels-modal-container";
-@import "cmps/dynamic-modal/labels/main-label-modal";
-@import "cmps/dynamic-modal/labels/edit-label-modal";
-@import "cmps/dynamic-modal/labels/delete-label-modal";
 @import "cmps/dynamic-modal/checklist-modal";
 @import "cmps/dynamic-modal/dates-modal";
 @import "cmps/dynamic-modal/attachment-modal";
 @import "cmps/dynamic-modal/cover-modal";
+// dynamic-modal/labels
+@import "cmps/dynamic-modal/labels/labels-modal-container";
+@import "cmps/dynamic-modal/labels/main-label-modal";
+@import "cmps/dynamic-modal/labels/edit-label-modal";
+@import "cmps/dynamic-modal/labels/delete-label-modal";
+
 // login signup
 @import "cmps/login-signup/login-signup-header";
+
+// user-profile
+@import "cmps/user-profile/user-header";
+@import "cmps/user-profile/user-hero";
+@import "cmps/user-profile/user-edit";

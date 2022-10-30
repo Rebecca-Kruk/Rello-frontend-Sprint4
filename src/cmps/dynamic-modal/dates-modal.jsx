@@ -31,7 +31,7 @@ export const DatesModal = ({ groupId, taskId, className }) => {
 
     return (
         <div
-            className={`dynamic-modal dates-modal ${className ? className : ''}`}
+            className={`dynamic-modal dates-modal ${className ? className : ""}`}
             onClick={(ev) => ev.stopPropagation()}
         >
             <LocalizationProvider dateAdapter={AdapterDayjs}>

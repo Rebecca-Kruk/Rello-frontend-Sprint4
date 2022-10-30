@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadBoard, setMainHeaderHidden, updateBoardFromSocket } from '../store/board/board.actions'
 import { setIsFormAddOpen } from '../store/board/board.actions'
-import { GroupList } from '../cmps/board/group-list'
+import { GroupList } from '../cmps/board/group/group-list'
 import { Outlet, useParams } from 'react-router-dom'
 import { MainHeader } from '../cmps/main-header'
 import { BoardSecondaryHeader } from '../cmps/board/board-secondary-header'
@@ -57,19 +57,19 @@ export const Board = () => {
         }
         return style
     }
-   
+
     if (!board) return <Loader />
     return (
-        <div className='board-layout board-page'>
+        <div className="board-layout board-page">
             {!isMainHeaderHidden && <MainHeader />}
-            <main className='full board-layout board' style={getBoardBg()}>
+            <main className="full board-layout board" style={getBoardBg()}>
                 <BoardSecondaryHeader board={board} />
-                <div className='group-list-container'>
+                <div className="group-list-container">
                     <GroupList groups={board.groups} />
                     {formAdd.isAddGroup
                         ? <FormAdd />
-                        : <button className='btn btn-add-group' onClick={onAddGroup}>
-                            <BsPlusLg className='plus-icon' />
+                        : <button className="btn btn-add-group" onClick={onAddGroup}>
+                            <BsPlusLg className="plus-icon" />
                             Add another list
                         </button>
                     }

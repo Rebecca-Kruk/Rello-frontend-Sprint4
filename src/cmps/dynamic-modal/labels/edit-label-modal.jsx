@@ -56,13 +56,13 @@ export const EditLabelModal = ({ label, updateLabels, toggleModal }) => {
                     })}
                 </div>
 
-                <div className={`remove-btn ${updatedColor === '#DFE1E6' && 'disable'}`}>
+                <div className={`remove-btn ${updatedColor === "#DFE1E6" && "disable"}`}>
                     <IoCloseOutline className="icon-close" />
                     <button onClick={removeColor}>Remove color</button>
                 </div>
 
                 <div className="buttons">
-                    <button className={`edit-save-btn ${!id && 'c-btn'}`} onClick={updateLabel}>
+                    <button className={`edit-save-btn ${!id && "c-btn"}`} onClick={updateLabel}>
                         {id ? 'Save' : 'Create'}
                     </button>
 

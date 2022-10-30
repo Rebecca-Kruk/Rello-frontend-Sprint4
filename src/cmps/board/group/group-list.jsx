@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { GroupPreview } from './group-preview'
-import { updateBoard, setIsFormAddOpen, movTask, handleDrag } from '../../store/board/board.actions'
-import { FormAdd } from './form-add'
+import { updateBoard, setIsFormAddOpen, movTask, handleDrag } from '../../../store/board/board.actions'
+import { FormAdd } from '../form-add'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { utilService } from '../../services/util.service'
+import { utilService } from '../../../services/util.service'
 
 export const GroupList = ({ groups }) => {
     const board = useSelector(state => state.boardModule.board)

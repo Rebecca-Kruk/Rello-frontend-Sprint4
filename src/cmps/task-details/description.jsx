@@ -61,10 +61,10 @@ export const Description = ({ description }) => {
             <textarea
                 className={description ? "" : "blank"}
                 placeholder="Add a more detailed description..."
-                onFocus={onFocus}
-                onBlur={onBlur}
                 value={updatedDescription}
                 onChange={handleChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 onKeyDown={handleTexteareaHeight}
                 ref={ref}
             />

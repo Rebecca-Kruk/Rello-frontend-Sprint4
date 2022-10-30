@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { removeTask, setDynamicModal, setModalTaskId, updateTask } from "../../store/board/board.actions"
+import { removeTask, setDynamicModal, setModalTaskId, updateTask } from "../../../store/board/board.actions"
 import { BiCreditCardFront } from 'react-icons/bi'
 import { FiCreditCard } from 'react-icons/fi'
 import { BsArchive } from 'react-icons/bs'
@@ -8,7 +8,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { BsClock } from 'react-icons/bs'
 import { useState } from "react"
 import { TaskPreviewBadge } from "./task-preview-badge"
-import { DynamicModal } from "../dynamic-modal/dynamic-modal"
+import { DynamicModal } from "../../dynamic-modal/dynamic-modal"
 
 export const TaskEditModal = ({ task, groupId, closeTaskEditModal, isBadge }) => {
 
@@ -54,16 +54,16 @@ export const TaskEditModal = ({ task, groupId, closeTaskEditModal, isBadge }) =>
                 <div className="task-edit-content">
                     {attachments && attachments.map((attachment, idx) => {
                         if (attachment.isCover) {
-                            return <img key={idx} className='task-cover-img' src={attachment.url} alt="cover" />
+                            return <img key={idx} className="task-cover-img" src={attachment.url} alt="cover" />
                         }
                     })}
                     <form onSubmit={onUpdateTask}>
                         {modalTaskId === id &&
-                            <input name='title' value={taskTitle} className='task-title-edit'
+                            <input name="title" value={taskTitle} className="task-title-edit"
                                 onClick={(ev) => ev.stopPropagation()}
                                 onChange={handleChange} onFocus={handleFocus} autoFocus>
                             </input>}
-                        <div className='edit-modal-task-preview' >
+                        <div className="edit-modal-task-preview" >
                             <div className="edit-modal-task-details">
                                 {isBadge() &&
                                     <TaskPreviewBadge task={task} />}

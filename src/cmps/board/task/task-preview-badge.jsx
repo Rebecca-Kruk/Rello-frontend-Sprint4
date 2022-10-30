@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
-import { boardService } from "../../services/board.service"
-import { utilService } from "../../services/util.service"
-import { updateTask } from "../../store/board/board.actions"
+import { boardService } from "../../../services/board.service"
+import { utilService } from "../../../services/util.service"
+import { updateTask } from "../../../store/board/board.actions"
 
 import { FiClock } from 'react-icons/fi'
 import { GrTextAlignFull } from 'react-icons/gr'

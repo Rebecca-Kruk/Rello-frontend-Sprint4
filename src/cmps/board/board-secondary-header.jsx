@@ -23,26 +23,26 @@ export const BoardSecondaryHeader = ({ board }) => {
     }
 
     return (
-        <header className='full board-layout board-secondary-header-container'>
-            <div className='board-secondary-header'>
-                <div className='header-main-content'>
+        <header className="full board-layout board-secondary-header-container">
+            <div className="board-secondary-header">
+                <div className="header-main-content">
                     <div className="header-board-details">
                         <span className="board-title">{board.title}</span>
-                        <button className='btn btn-transparent creator'>
+                        <button className="btn btn-transparent creator">
                             {board.createdBy ? board.createdBy.fullname : 'Guest'}
                         </button>
-                        <span className='divider'></span>
+                        <span className="divider"></span>
                         <span className="member-avatars">
                             {board.members && board.members.map((member, idx) => (
                                 <img key={member._id} src={member.imgUrl}
-                                    alt="profile img" className='member-avatar'
+                                    alt="profile img" className="member-avatar"
                                     style={{ transform: `translate(${getAvatarPosition(idx)}px)` }} />
                             )
                             )}
-                            <button className='btn btn-transparent btn-share'
+                            <button className="btn btn-transparent btn-share"
                                 onClick={() => setIsMembersModalOpen(true)}>
-                                <BsPersonPlus className='add-member-icon' />
-                                <span className='share'>Share</span>
+                                <BsPersonPlus className="add-member-icon" />
+                                <span className="share">Share</span>
                             </button>
                         </span>
                         {isMembersModalOpen && <BoardMembersModal setIsMembersModalOpen={setIsMembersModalOpen} />}

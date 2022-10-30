@@ -47,11 +47,11 @@ export const MainHeader = () => {
     // }
 
     return (
-        <header className='full board-layout main-header'>
-            <div className='flex header-main-container'>
-                <div className='logo-container'>
-                    <Link to='/template' className='logo'>
-                        <img src={boardLogo} alt='logo' />
+        <header className="full board-layout main-header">
+            <div className="flex header-main-container">
+                <div className="logo-container">
+                    <Link to='/template' className="logo">
+                        <img src={boardLogo} alt="logo" />
                         Rello
                     </Link>
                     {/* <button className='btn btn-transparent btn-create' onClick={toggleAddBoardModal}>
@@ -60,11 +60,11 @@ export const MainHeader = () => {
                     {isAddBoardModalOpen && <AddBoardModal toggleAddBoardModal={toggleAddBoardModal} />} */}
                 </div>
                 {user
-                    ? <button className='btn avatar-btn' onClick={toggleUserModal}>
-                        <img src={user.imgUrl} alt='user avatar' className='avatar' />
+                    ? <button className="btn avatar-btn" onClick={toggleUserModal}>
+                        <img src={user.imgUrl} alt="user avatar" className="avatar" />
                     </button>
-                    : <div className='flex header-links'>
-                        <Link to='/login' className='login-link'>Log in</Link>
+                    : <div className="flex header-links">
+                        <Link to='/login' className="login-link">Log in</Link>
                     </div>}
                 {isUserModalOpen && <UserModal toggleUserModal={toggleUserModal} />}
             </div>

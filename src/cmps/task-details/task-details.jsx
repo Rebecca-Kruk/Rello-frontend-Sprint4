@@ -1,20 +1,20 @@
 import { useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { boardService } from '../services/board.service'
-import { setDynamicModal } from '../store/board/board.actions'
+import { boardService } from '../../services/board.service'
+import { setDynamicModal } from '../../store/board/board.actions'
 import { IoCloseOutline } from 'react-icons/io5'
 
-import { Loader } from "../cmps/loader"
-import { Cover } from '../cmps/task-details/cover'
-import { TaskTitle } from '../cmps/task-details/task-title'
-import { Members } from '../cmps/task-details/members'
-import { Labels } from '../cmps/task-details/labels'
-import { Date } from '../cmps/task-details/date'
-import { Description } from '../cmps/task-details/description'
-import { AttachmentList } from '../cmps/task-details/attachment/attachment-list'
-import { ChecklistList } from '../cmps/task-details/checklist/checklist-list'
-import { TaskSideBar } from '../cmps/task-details/task-sidebar'
+import { Loader } from '../loader'
+import { Cover } from './cover'
+import { TaskTitle } from './task-title'
+import { Members } from './members'
+import { Labels } from './labels'
+import { Date } from './date'
+import { Description } from './description'
+import { AttachmentList } from './attachment/attachment-list'
+import { ChecklistList } from './checklist/checklist-list'
+import { TaskSideBar } from './task-sidebar'
 
 export const TaskDetails = () => {
 

@@ -116,15 +116,15 @@ export const AddBoardModal = ({ toggleAddBoardModal }) => {
                     </label>
                     <input
                         className="add-board-input-title"
-                        name='title'
-                        id='title'
+                        name="title"
+                        id="title"
                         value={board.title}
                         onChange={handleChange}
                         autoFocus
                     >
                     </input>
                     <p className="require-title"> 👋 Board title is required</p>
-                    <button className={board.title ? 'btn-add-board' : 'btn-disabled'}>
+                    <button className={board.title ? "btn-add-board" : "btn-disabled"}>
                         Create
                     </button>
                 </form>

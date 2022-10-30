@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
-import { AttachmentEditModal } from "./attachment-edit-modal"
 import { utilService } from "../../../services/util.service"
+import { AttachmentEditModal } from "./attachment-edit-modal"
 import { useMediaQuery } from "@mui/material"
 
 import { GrAttachment } from 'react-icons/gr'

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { boardService } from "../../services/board.service"
-import { LabelStyleCmp } from "../dynamic-modal/labels/label-style-cmp"
+import { boardService } from "../../../services/board.service"
+import { LabelStyleCmp } from "../../dynamic-modal/labels/label-style-cmp"
 
 export const TaskPreviewLabels = ({ board, groupId, taskId }) => {
 
@@ -19,10 +19,14 @@ export const TaskPreviewLabels = ({ board, groupId, taskId }) => {
                     const { id, color, title } = label
 
                     return <li key={id}>
-                        <LabelStyleCmp toggleLabel={toggleLabel}
-                            inlineStyle={!isLabelOpen}
+                        <LabelStyleCmp
                             className={isLabelOpen ? "label-open" : "label-close"}
-                            ballSize='ball-size' text='text' color={color} title={title}
+                            toggleLabel={toggleLabel}
+                            inlineStyle={!isLabelOpen}
+                            ballSize='ball-size'
+                            text='text'
+                            color={color}
+                            title={title}
                         />
                     </li>
                 })}

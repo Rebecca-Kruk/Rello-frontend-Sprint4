@@ -24,18 +24,18 @@ export const HomeHeader = () => {
     }
 
     return (
-        <header className='flex home-header'>
-            <Link to='/' className='logo'>
-                <img src={homeLogo} alt='logo' />
+        <header className="flex home-header">
+            <Link to='/' className="logo">
+                <img src={homeLogo} alt="logo" />
                 Rello
             </Link>
             {user
-                ? <button className='btn avatar-btn' onClick={toggleUserModal}>
-                    <img src={user.imgUrl} alt='user avatar' className='avatar' />
+                ? <button className="btn avatar-btn" onClick={toggleUserModal}>
+                    <img src={user.imgUrl} alt="user avatar" className="avatar" />
                 </button>
-                : <div className='flex header-links'>
-                    <Link to='login' className='login-link'>Log in</Link>
-                    <Link to='/template' className='btn btn-wide'>Get Rello for free</Link>
+                : <div className="flex header-links">
+                    <Link to='login' className="login-link">Log in</Link>
+                    <Link to='/template' className="btn btn-wide">Get Rello for free</Link>
                 </div>}
             {isUserModalOpen && <UserModal toggleUserModal={toggleUserModal} />}
         </header>

@@ -60,7 +60,7 @@ export const Todo = ({ todo, updateTodos, removeTodo }) => {
             </div>
 
             <button
-                className={`${focused && 'focused'} todo-remove-btn`}
+                className={`${focused && "focused"} todo-remove-btn`}
                 onClick={() => removeTodo(id)}
             >
                 <HiOutlineDotsHorizontal />

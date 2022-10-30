@@ -39,8 +39,10 @@ export const LabelStyleCmp = ({ toggleLabel, inlineStyle, className, ballSize, t
 
     return (
         <LabelContainer
+            className={className}
             style={inlineStyle ? { backgroundColor: `${color}` } : { cursor: 'pointer' }}
-            onClick={toggleLabel} className={className} color={color}
+            color={color}
+            onClick={toggleLabel}
         >
             <BgColor className={className} color={color} />
             <Color className={ballSize} color={color} />

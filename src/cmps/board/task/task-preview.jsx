@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { setModalTaskId } from '../../store/board/board.actions'
+import { setModalTaskId } from '../../../store/board/board.actions'
 import { BiPencil } from 'react-icons/bi'
 
-import { Loader } from '../loader'
+import { Loader } from '../../loader'
 import { Draggable } from 'react-beautiful-dnd'
 import { TaskEditModal } from './task-edit-modal'
 import { TaskPreviewBadge } from './task-preview-badge'

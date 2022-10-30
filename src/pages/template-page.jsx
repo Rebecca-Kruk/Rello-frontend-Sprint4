@@ -74,7 +74,7 @@ export const TemplatePage = () => {
 
     if (!boards) return <Loader />
     return (
-        <div className='template-page'>
+        <div className="template-page">
             <MainHeader />
             <div className="template-layout board-list-container">
                 {onGetStarredBoards().length > 0 &&

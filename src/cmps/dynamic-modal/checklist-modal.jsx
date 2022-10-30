@@ -32,7 +32,7 @@ export const ChecklistModal = ({ groupId, taskId, closeModal, className }) => {
 
     return (
         <div
-            className={`dynamic-modal checklist-modal ${className ? className : ''}`}
+            className={`dynamic-modal checklist-modal ${className ? className : ""}`}
             onClick={(ev) => ev.stopPropagation()}
         >
             <div className="dynamic-header">

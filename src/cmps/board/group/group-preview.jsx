@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setIsFormAddOpen, setModalGroupId, setTitleGroupId, updateGroupTitle } from '../../store/board/board.actions'
-import { FormAdd } from './form-add'
+import { setIsFormAddOpen, setModalGroupId, setTitleGroupId, updateGroupTitle } from '../../../store/board/board.actions'
+import { FormAdd } from '../form-add'
 import { GroupActionModal } from './group-action-modal'
-import { TaskList } from './task-list'
-import { removeGroup } from "../../store/board/board.actions"
+import { TaskList } from '../task/task-list'
+import { removeGroup } from "../../../store/board/board.actions"
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { BsPlusLg } from 'react-icons/bs'
 import { Draggable } from 'react-beautiful-dnd'
@@ -61,18 +61,18 @@ export const GroupPreview = ({ group, index }) => {
     return (
         <Draggable draggableId={group.id} index={index}>
             {provided => (
-                <div className={`flex column group-preview ${isScrollable ? 'scrollable' : ''}`}
+                <div className={`flex column group-preview ${isScrollable ? "scrollable" : ""}`}
                     {...provided.draggableProps} ref={provided.innerRef}>
-                    <div className='group-title-container' {...provided.dragHandleProps}>
+                    <div className="group-title-container" {...provided.dragHandleProps}>
                         {titleGroupId === id
-                            ? <textarea name='title' value={groupTitle} className='group-title-edit'
+                            ? <textarea name="title" value={groupTitle} className="group-title-edit"
                                 onChange={handleChange} onBlur={onUpdateTitle} autoFocus></textarea>
-                            : <div className='group-title' onClick={onEditGroupTitle}>
+                            : <div className="group-title" onClick={onEditGroupTitle}>
                                 <h3>{title}</h3>
                             </div>
                         }
-                        <div className='flex btn-container'>
-                            <button className='btn btn-open-modal' onClick={toggleGroupModal}>
+                        <div className="flex btn-container">
+                            <button className="btn btn-open-modal" onClick={toggleGroupModal}>
                                 <HiOutlineDotsHorizontal />
                             </button>
                         </div>
@@ -86,7 +86,7 @@ export const GroupPreview = ({ group, index }) => {
                         !isFormAddTaskUp && <FormAdd groupId={id} />}
                     {formAdd.groupId !== id && <div className="add-task-container">
                         <button className="btn btn-add-task" onClick={() => openAddForm(false)}>
-                            <BsPlusLg className='plus-icon' />
+                            <BsPlusLg className="plus-icon" />
                             Add a card
                         </button>
                     </div>}

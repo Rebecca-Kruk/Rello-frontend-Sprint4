@@ -9,7 +9,7 @@ export const LoginSignup = () => {
     const [isLogin, setIsLogin] = useState(true)
 
     return (
-        <div className='login-signup-page'>
+        <div className="login-signup-page">
             <LoginSignupHeader />
             {isLogin
                 ? <Login setIsLogin={setIsLogin} />

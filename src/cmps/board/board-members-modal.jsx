@@ -58,66 +58,66 @@ export const BoardMembersModal = ({ setIsMembersModalOpen }) => {
     }
 
     return (
-        <div className='black-screen' onClick={() => setIsMembersModalOpen(false)}>
-            <div className='board-members-modal' onClick={closeUsersModal}>
-                <div className='flex modal-title-container'>
-                    <h3 className='modal-title'>Share board</h3>
-                    <button className='close-icon' onClick={() => setIsMembersModalOpen(false)}>
+        <div className="black-screen" onClick={() => setIsMembersModalOpen(false)}>
+            <div className="board-members-modal" onClick={closeUsersModal}>
+                <div className="flex modal-title-container">
+                    <h3 className="modal-title">Share board</h3>
+                    <button className="close-icon" onClick={() => setIsMembersModalOpen(false)}>
                         <IoCloseOutline />
                     </button>
                 </div>
-                <form className='flex search-member-container'>
-                    <div className='search-member'>
-                        <div className='input-container'>
+                <form className="flex search-member-container">
+                    <div className="search-member">
+                        <div className="input-container">
                             {selectedUsers && (
-                                <div className='selected-users'>
+                                <div className="selected-users">
                                     {selectedUsers.map(selectedUser => (
-                                        <div className='selected-user' key={selectedUser._id}>
-                                            <span className='selected-user-name'>
+                                        <div className="selected-user" key={selectedUser._id}>
+                                            <span className="selected-user-name">
                                                 {selectedUser.fullName}
                                             </span>
-                                            <button className='btn btn-remove-user'
+                                            <button className="btn btn-remove-user"
                                                 onClick={() => removeUser(selectedUser._id)}>
                                                 <IoCloseOutline />
                                             </button>
                                         </div>
                                     ))}
                                 </div>)}
-                            <input type='text' placeholder={selectedUsers?.length ? '' : 'Search by name'}
-                                className='member-input' name='text'
+                            <input type="text" placeholder={selectedUsers?.length ? "" : "Search by name"}
+                                className="member-input" name="text"
                                 onChange={handleChange} value={form.text} />
                         </div>
                         {isUsersModalOpen &&
-                            <div className='user-list-container'>
+                            <div className="user-list-container">
                                 {users.length
-                                    ? <ul className='suggested-user-list'>
+                                    ? <ul className="suggested-user-list">
                                         {users.map(user => (
-                                            <li className='flex suggested-user' key={user._id}>
+                                            <li className="flex suggested-user" key={user._id}>
                                                 <button
-                                                    className={`btn add-member-btn ${isBoardMember(user) && 'disabled'}`}
+                                                    className={`btn add-member-btn ${isBoardMember(user) && "disabled"}`}
                                                     disabled={isBoardMember(user)}
                                                     onClick={() => onSelectUser(user)}>
-                                                    <img src={user.imgUrl} alt='avatar' className='member-avatar' />
-                                                    <span className='suggested-user-name'>{user.fullName}</span>
+                                                    <img src={user.imgUrl} alt="avatar" className="member-avatar" />
+                                                    <span className="suggested-user-name">{user.fullName}</span>
                                                 </button>
                                             </li>
                                         ))}
                                     </ul>
-                                    : <div className='msg'>Looks like that person isn't a Trello member yet.</div>}
+                                    : <div className="msg">Looks like that person isn't a Trello member yet.</div>}
                             </div>}
                     </div>
-                    <button className='btn btn-primary-board' type='submit' onClick={ev => onShare(ev)}>
+                    <button className="btn btn-primary-board" type="submit" onClick={ev => onShare(ev)}>
                         Share
                     </button>
                 </form>
                 {members && (
-                    <ul className='members-list'>
+                    <ul className="members-list">
                         {members.map(member => (
-                            <li className='flex member' key={member._id}>
-                                <img src={member.imgUrl} alt='Member avatar' className='member-avatar' />
-                                <div className='member-details'>
-                                    <div className='full-name'>{member.fullName}</div>
-                                    <div className='username'>@{member.username}</div>
+                            <li className="flex member" key={member._id}>
+                                <img src={member.imgUrl} alt="Member avatar" className="member-avatar" />
+                                <div className="member-details">
+                                    <div className="full-name">{member.fullName}</div>
+                                    <div className="username">@{member.username}</div>
                                 </div>
                             </li>))}
                     </ul>)}
