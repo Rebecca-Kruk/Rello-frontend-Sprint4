@@ -1,6 +1,6 @@
 # Rello - pixel prefect, E2E clone of Trello (React + Node.js).
 
-Task and project management board app inspired by trello.com, [here is my project link](https://rello.onrender.com/ "Rello link").
+Task and project management board app inspired by trello.com, [here is my project link](https://rello-sprint4.onrender.com/ "Rello link").
 
 ![Main board image](src/assets/img/readme-imgs/Rello-board-img.png "Board main page")
 ___
