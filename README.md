@@ -41,9 +41,9 @@ We have used many third side libraries for many goals, such as D&D and more. The
 Head to the repository on top and clone the project or download the files.
 
 ```
-git clone https://github.com/NogaMorH/sprint4.git
+git clone https://github.com/Rebecca-Kruk/Rello-frontend-Sprint4.git
 ```
-Also, clone the backend folder [here](https://github.com/NogaMorH/Rello.git)
+Also, clone the backend folder [here](https://github.com/Rebecca-Kruk/Rello-backend-Sprint4.git)
 
 Enter the backend folder and make sure you have node_modules installed. After that we will initiate the server with 'npm start':
 
@@ -100,9 +100,9 @@ The layout we have built from the very first moment enabled us to make the websi
 <img src="src/assets/img/readme-imgs/mobile-home-page.png" width="25%" style="float: left"/><img src="src/assets/img/readme-imgs/mobile-signin.png" width="25%" style="float: left;"/><img src="src/assets/img/readme-imgs/mobile-board.png" width="25%" style="float: left;"/><img src="src/assets/img/readme-imgs/mobile-task-details.png" width="25%" style="float: left;"/>
 
 ### Authors
+ - [Rebecca Krukover](https://github.com/Rebecca-Kruk)
  - [Kfir Azulay](https://github.com/kfirazu)
  - [Noga Mor Havilio](https://github.com/NogaMorH)
- - [Rebecca Krukover](https://github.com/Rebecca-Kruk)
 
 
 
