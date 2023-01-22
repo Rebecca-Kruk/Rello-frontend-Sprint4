@@ -71,7 +71,6 @@
         }
 
         .filter-container {
-
             .btn-transparent {
                 @include btn-transparent-size;
             }
@@ -97,12 +96,9 @@
                     font-size: rem(16px);
                     font-weight: 400;
                     color: $clr8;
-                    // line-height: rem(32px);
                     font-family: san-francisco-medium, sans-serif;
                     margin-inline-end: 15px;
                     width: 145px;
-
-
                 }
 
                 .creator {
@@ -115,12 +111,10 @@
 
                 .member-avatars {
                     display: none;
-
                 }
 
                 .btn-open-menu {
                     background-color: transparent;
-
                 }
 
                 .show-menu-txt {
@@ -131,9 +125,7 @@
                     font-size: 1.1rem;
                     color: $clr8;
                 }
-
             }
         }
     }
-
 }

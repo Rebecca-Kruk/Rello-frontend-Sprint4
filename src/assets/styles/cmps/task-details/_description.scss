@@ -29,7 +29,6 @@
         width: 94%;
         resize: none;
         overflow-y: hidden;
-        // min-height: 56px;
         padding-bottom: 10px;
         font-family: inherit;
         font-size: rem(14px);
@@ -42,7 +41,7 @@
         &.blank {
             min-height: 56px;
             padding: 8px 12px;
-            background-color: #091e420a;
+            background-color: $clr27;
 
             &:hover {
                 background-color: #091e4217;
@@ -54,7 +53,6 @@
         }
 
         &:focus {
-            height: 108px; // not working because of handleTextHeight(ref) when cmp did mount
             padding: 8px 12px;
             background-color: white;
             outline-color: $clr18;

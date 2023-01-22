@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { LabelStyleCmp } from './label-style-cmp'
-import { IoCloseOutline } from 'react-icons/io5'
+import { useEffect, useRef, useState } from "react"
+import { LabelStyleCmp } from "./label-style-cmp"
+import { IoCloseOutline } from "react-icons/io5"
 
 export const EditLabelModal = ({ label, updateLabels, toggleModal }) => {
 

@@ -1,4 +1,4 @@
-import { gBoards } from "../data/board"
+import { gBoards } from "../../data/board"
 
 export const storageService = {
     query,
@@ -12,10 +12,10 @@ export const storageService = {
 function query(entityType, delay = 600) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || gBoards
     return new Promise((resolve, reject) => {
-        // setTimeout(() => {
-            // reject('OOOOPs')
+        setTimeout(() => {
+            reject('OOOOPs')
             resolve(entities)
-        // }, delay)
+        }, delay)
     })
     // return Promise.resolve(entities)
 }
@@ -23,7 +23,8 @@ function query(entityType, delay = 600) {
 function get(entityType, entityId) {
     return query(entityType)
         .then(entities => {
-            return entities.find(entity => entity._id === entityId)})
+            return entities.find(entity => entity._id === entityId)
+        })
 }
 
 function post(entityType, newEntity) {

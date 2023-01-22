@@ -16,7 +16,6 @@
                 margin-inline-start: 15px;
                 font-size: rem(15px);
                 line-height: 24px;
-                /* margin-bottom: 8px; */
                 font-family: san-fransisco-medium, sans-serif;
                 font-weight: 700;
             }
@@ -30,7 +29,6 @@
             }
 
             .board-preview {
-                // margin: 0 2% 2% 0;
                 padding: 0;
                 transform: translate(0);
                 height: 6.8rem;
@@ -56,7 +54,6 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    // height: rem(75px);
                     height: 100%;
                     padding: 6px 6px 6px 6px;
                     background-color: #0000004d;
@@ -68,7 +65,6 @@
                         margin-top: 2px;
                     }
 
-                    // &:hover {
                     .starred {
                         color: #f1d600;
                         position: absolute;
@@ -104,6 +100,7 @@
 @include for-mobile-layout {
     .template-page {
         .board-list-container {
+
             .board-list-title-container {
                 .board-list-title {
                     font-size: rem(20px);
@@ -118,7 +115,6 @@
                     &.add-board {
                         margin-bottom: 2.4375rem;
                         font-size: rem(18px);
-
                     }
 
                     .board-preview-details {
@@ -134,8 +130,6 @@
 
                         .unstarred {
                             font-size: rem(20px);
-
-
                         }
                     }
                 }

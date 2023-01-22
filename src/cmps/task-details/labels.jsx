@@ -5,7 +5,7 @@ import { setDynamicModal } from "../../store/board/board.actions"
 import { DynamicModal } from "../dynamic-modal/dynamic-modal"
 import { LabelStyleCmp } from "../dynamic-modal/labels/label-style-cmp"
 import { useMediaQuery } from "@mui/material"
-import { BsPlusLg } from 'react-icons/bs'
+import { BsPlusLg } from "react-icons/bs"
 
 export const Labels = ({ board, dynamicModal }) => {
 
@@ -15,6 +15,7 @@ export const Labels = ({ board, dynamicModal }) => {
     const matches = useMediaQuery('(max-width: 750px)')
 
     const toggleModal = () => {
+
         if (dynamicModal.modalType === 'labels') {
             return dispatch(setDynamicModal({ modalType: null, fromCmp: null }))
         }

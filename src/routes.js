@@ -1,9 +1,9 @@
-import { Home } from './pages/home.jsx'
-import { TemplatePage } from './pages/template-page.jsx'
-import { Board } from './pages/board.jsx'
-import { TaskDetails } from './cmps/task-details/task-details.jsx'
-import { LoginSignup } from './pages/login-signup.jsx'
-import { UserProfile } from './pages/user-profile.jsx'
+import { Home } from "./pages/home.jsx"
+import { TemplatePage } from "./pages/template-page.jsx"
+import { Board } from "./pages/board.jsx"
+import { TaskDetails } from "./cmps/task-details/task-details.jsx"
+import { LoginSignup } from "./pages/login-signup.jsx"
+import { UserProfile } from "./pages/user-profile.jsx"
 
 const routes = [
     {

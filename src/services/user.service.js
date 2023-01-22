@@ -1,8 +1,6 @@
-// import { storageService } from './async-storage.service'
-import { httpService } from './http.service'
-import { socketService } from './socket.service'
-// import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
-// import { showSuccessMsg } from '../services/event-bus.service'
+// import { storageService } from "./local/async-storage.service"
+import { httpService } from "./http.service"
+import { socketService } from "./socket.service"
 
 const USER_BASE_URL = 'user/'
 const AUTH_BASE_URL = 'auth/'
@@ -19,8 +17,6 @@ export const userService = {
     update,
     filterUsers
 }
-
-// window.userService = userService
 
 async function getById(userId) {
     try {
@@ -52,6 +48,7 @@ async function update(user) {
 async function login(userCred) {
     try {
         const user = await httpService.post(`${AUTH_BASE_URL}login`, userCred)
+
         if (user) {
             socketService.login(user._id)
             return saveLocalUser(user)
@@ -64,6 +61,7 @@ async function login(userCred) {
 async function signup(userCred) {
     try {
         const user = await httpService.post(`${AUTH_BASE_URL}signup`, userCred)
+
         if (user) {
             socketService.login(user._id)
             return saveLocalUser(user)
@@ -99,13 +97,3 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
-
-
-

@@ -1,7 +1,6 @@
 const initialState = {
     boards: [],
     board: null
-
 }
 
 export function boardReducer(state = initialState, action) {
@@ -12,15 +11,7 @@ export function boardReducer(state = initialState, action) {
             return { ...state, boards: action.miniBoards }
         case 'UPDATE_BOARD':
             return { ...state, board: action.updatedBoard }
-
         default:
             return state
     }
-
-    // For debug:
-    // window.boardState = newState
-    // console.log('Prev State:', state)
-    // console.log('Action:', action)
-    // console.log('New State:', newState)
-    // return newState
 }

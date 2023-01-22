@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux'
-import { IoCloseOutline } from 'react-icons/io5'
-import { useForm } from '../../hooks/useForm'
-import { userService } from '../../services/user.service'
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { addMembersToBoard } from '../../store/board/board.actions'
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+import { useForm } from "../../hooks/useForm"
+import { userService } from "../../services/user.service"
+import { addMembersToBoard } from "../../store/board/board.actions"
+import { IoCloseOutline } from "react-icons/io5"
 
 export const BoardMembersModal = ({ setIsMembersModalOpen }) => {
 
@@ -54,39 +54,47 @@ export const BoardMembersModal = ({ setIsMembersModalOpen }) => {
 
     const isBoardMember = (suggestedUser) => {
         return board.members.find(member => member._id === suggestedUser._id)
-        // return boardMember ? true : false
     }
 
     return (
         <div className="black-screen" onClick={() => setIsMembersModalOpen(false)}>
             <div className="board-members-modal" onClick={closeUsersModal}>
+
                 <div className="flex modal-title-container">
                     <h3 className="modal-title">Share board</h3>
                     <button className="close-icon" onClick={() => setIsMembersModalOpen(false)}>
                         <IoCloseOutline />
                     </button>
                 </div>
+
                 <form className="flex search-member-container">
                     <div className="search-member">
+
                         <div className="input-container">
-                            {selectedUsers && (
+                            {selectedUsers &&
                                 <div className="selected-users">
                                     {selectedUsers.map(selectedUser => (
-                                        <div className="selected-user" key={selectedUser._id}>
+                                        <div key={selectedUser._id} className="selected-user">
                                             <span className="selected-user-name">
                                                 {selectedUser.fullName}
                                             </span>
+
                                             <button className="btn btn-remove-user"
                                                 onClick={() => removeUser(selectedUser._id)}>
                                                 <IoCloseOutline />
                                             </button>
                                         </div>
                                     ))}
-                                </div>)}
-                            <input type="text" placeholder={selectedUsers?.length ? "" : "Search by name"}
+                                </div>
+                            }
+
+                            <input
+                                type="text" placeholder={selectedUsers?.length ? "" : "Search by name"}
                                 className="member-input" name="text"
-                                onChange={handleChange} value={form.text} />
+                                onChange={handleChange} value={form.text}
+                            />
                         </div>
+
                         {isUsersModalOpen &&
                             <div className="user-list-container">
                                 {users.length
@@ -96,7 +104,8 @@ export const BoardMembersModal = ({ setIsMembersModalOpen }) => {
                                                 <button
                                                     className={`btn add-member-btn ${isBoardMember(user) && "disabled"}`}
                                                     disabled={isBoardMember(user)}
-                                                    onClick={() => onSelectUser(user)}>
+                                                    onClick={() => onSelectUser(user)}
+                                                >
                                                     <img src={user.imgUrl} alt="avatar" className="member-avatar" />
                                                     <span className="suggested-user-name">{user.fullName}</span>
                                                 </button>
@@ -104,23 +113,29 @@ export const BoardMembersModal = ({ setIsMembersModalOpen }) => {
                                         ))}
                                     </ul>
                                     : <div className="msg">Looks like that person isn't a Trello member yet.</div>}
-                            </div>}
+                            </div>
+                        }
                     </div>
+
                     <button className="btn btn-primary-board" type="submit" onClick={ev => onShare(ev)}>
                         Share
                     </button>
                 </form>
-                {members && (
+
+                {members &&
                     <ul className="members-list">
                         {members.map(member => (
                             <li className="flex member" key={member._id}>
                                 <img src={member.imgUrl} alt="Member avatar" className="member-avatar" />
+
                                 <div className="member-details">
                                     <div className="full-name">{member.fullName}</div>
                                     <div className="username">@{member.username}</div>
                                 </div>
-                            </li>))}
-                    </ul>)}
+                            </li>
+                        ))}
+                    </ul>
+                }
             </div>
         </div>
     )

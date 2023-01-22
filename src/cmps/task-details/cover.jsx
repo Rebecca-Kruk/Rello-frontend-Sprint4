@@ -21,10 +21,9 @@ export const Cover = ({ cover, dynamicModal }) => {
 
     return (
         <div className="full cover">
-            {cover.img ?
-                <img className="cover-img" src={cover.img} alt="cover img" />
-                :
-                <div className="cover-color" style={{ background: `${cover.color}` }} />
+            {cover.img
+                ? <img className="cover-img" src={cover.img} alt="cover img" />
+                : <div className="cover-color" style={{ background: `${cover.color}` }} />
             }
 
             <button className="cover-btn" onClick={toggleCoverModal}>

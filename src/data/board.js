@@ -1,68 +1,12 @@
-// Guidelines
-// boardStore (no need for groupStore, taskStore), boardService
-// *. Support saving the entire board and also on the task level, 
-
-//    (no need for seperate APIs for mini-updates of task parts like members or status)
-// *. No need for saving an activities array per task, those activities are easily filtered from the board activities
-
-// *. activites - when board is updated, the frontend does not send the activities array within the board 
-//    instead it only sends a new activity object: {txt, boardId, groupId, taskId}
-//    the backend adds this activity to the board with $push and can also emit socket notificatios
-
-// *. D & D Guidelines - vue-smooth-dnd / vuedraggable / react-beutiful-dnd
-// *. Same model for Monday style app (do not implement a generic columns feature)
-// *. We do not handle concurrent editing - needs versioning
-
-// Rendering performance:
-// Store Mutation - saveBoard
-// state.board = board
-// Later, support switching a specific task
-
-
-// <BoardDetails> => <BoardGroup v-for / map>
-// <BoardGroup> => <TaskPreview v-for / map>
-// <TaskDetails> (supports edit) - initially can be loaded in seperate route 
-// (later on we can place it in a modal and nested route)
-
-// Component
-// const activity = {
-//     "id": utilService.makeId(),
-//     "txt": "Changed Color",
-//     "createdAt": Date.now(),
-//     "byMember": userService.getLoggedinUser(),
-//     "task": "task"
-// }
-
-// // Store - saveTask
-// function storeSaveTask(task, activity) {
-
-//     board = boardService.saveTask(boardId, groupId, task, activity)
-//     commit(board)
-// }
-
-// boardService
-// function saveTask(boardId, groupId, task, activity) {
-//     const board = getById(boardId)
-//     // PUT /api/board/b123/task/t678
-
-//     // TODO: find the task, and update
-//     board.activities.unshift(activity)
-//     saveBoard(board)
-//     // return board
-//     // return task
-// }
-
 export const gBoards = [{
     "_id": "b101",
     "title": "Trello-Sprint 4",
     "isStarred": false,
-    // "archivedAt": null,
     "createdBy": {
         "_id": "u101",
         "fullname": "Kfir Azulay",
         "imgUrl": "http://some-img"
     },
-    // "style": { "background": "url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.w3schools.com%2Fcss%2Fimg_lights.jpg&imgrefurl=https%3A%2F%2Fwww.w3schools.com%2Fcss%2Fcss3_images.asp&tbnid=kwgHAQqTiLQXLM&vet=12ahUKEwjW5p2J0ZT6AhULgc4BHa10Ac0QMygEegUIARDHAQ..i&docid=2bZLA8JdC6ZaTM&w=600&h=400&itg=1&q=image&ved=2ahUKEwjW5p2J0ZT6AhULgc4BHa10Ac0QMygEegUIARDHAQ)" },
     "labels": [
         {
             "id": "l101",
@@ -133,7 +77,7 @@ export const gBoards = [{
                     "id": "t101",
                     "title": "Demo 1",
                     "dueDate": 1663480800000,
-                    "cover": {"img": "https://trello.com/1/cards/632603fbf6acc8003771698a/attachments/632604094ac46301cd75ec3c/download/600b72f9-react-1024x680.png"},
+                    "cover": { "img": "https://trello.com/1/cards/632603fbf6acc8003771698a/attachments/632604094ac46301cd75ec3c/download/600b72f9-react-1024x680.png" },
                     // "isDone": false,
                     "labelIds": ["l101", "l102", "l103", "l104", "l105", "l106"],
                     "memberIds": ["u101", "u102", "u103"],
@@ -258,11 +202,11 @@ export const gBoards = [{
                                     "title": "Write functionality",
                                     "isDone": false
                                 },
-        
+
                             ]
                         },
-                        
-        
+
+
                     ],
                 },
                 {
@@ -299,7 +243,7 @@ export const gBoards = [{
                     "dueDate": 1663900250120,
                     "description": "fix the functionality",
                     "labelIds": ["l101", "l103"],
-                    "memberIds": [ "u103"],
+                    "memberIds": ["u103"],
                 },
                 {
                     "id": "t108",
@@ -467,7 +411,7 @@ export const gBoards = [{
                         }
                     ],
                 },
-                
+
             ]
         },
         {
@@ -560,116 +504,117 @@ export const gBoards = [{
                     "description": "",
                     "labelIds": ["l101"],
                     "attachments": [{ "name": "React beautiful dnd", "url": "https://github.com/atlassian/react-beautiful-dnd", "isCover": false }],
-            "checklists": [
+                    "checklists": [
 
+                        {
+                            "id": "YEhmF",
+                            "title": "React beautiful dnd",
+                            "todos": [
+                                {
+                                    "id": "212j3",
+                                    "title": "Get to know the library",
+                                    "isDone": true
+                                },
+                                {
+                                    "id": "212f3",
+                                    "title": "Watch tutorial",
+                                    "isDone": true
+                                },
+                                {
+                                    "id": "212d3",
+                                    "title": "Implement the feature in group list component",
+                                    "isDone": true
+                                },
+
+                            ]
+                        },
+
+
+                    ],
+                    "labelIds": ["l104"],
+                },
                 {
-                    "id": "YEhmF",
-                    "title": "React beautiful dnd",
-                    "todos": [
+                    "id": "t120",
+                    "title": "Defining the application's layout",
+                    "description": "",
+                    "labelIds": ["l101"],
+                    "memberIds": ["u102"],
+                    "comments": [
                         {
-                            "id": "212j3",
-                            "title": "Get to know the library",
-                            "isDone": true
-                        },
-                        {
-                            "id": "212f3",
-                            "title": "Watch tutorial",
-                            "isDone": true
-                        },
-                        {
-                            "id": "212d3",
-                            "title": "Implement the feature in group list component",
-                            "isDone": true
-                        },
-
+                            "id": "ZdPnm",
+                            "txt": "",
+                            "createdAt": 1663176600000,
+                            "byMember": {
+                                "id": "u101",
+                                "fullname": "Rebecca Krukover",
+                                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                            }
+                        }
                     ]
                 },
-                
-
-            ],
-            "labelIds": ["l104"],
+            ]
+        }
+    ],
+    "activities": [
+        {
+            "id": "a101",
+            "txt": "Changed Color",
+            "createdAt": 154514,
+            "byMember": {
+                "id": "u103",
+                "fullname": "Rebecca Krukover",
+                "imgUrl": "http://some-img"
+            },
+            "task": {
+                "id": "c101",
+                "title": "Demo 1"
+            }
         },
         {
-            "id": "t120",
-            "title": "Defining the application's layout",
-            "description": "",
-            "labelIds": ["l101"],
-            "memberIds": ["u102"],
-            "comments": [
-                {
-                    "id": "ZdPnm",
-                    "txt": "",
-                    "createdAt": 1663176600000,
-                    "byMember": {
-                        "id": "u101",
-                        "fullname": "Rebecca Krukover",
-                        "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                    }
-                }
-            ]
+            "id": "a102",
+            "txt": "Task Created",
+            "createdAt": 154514,
+            "byMember": {
+                "id": "u103",
+                "fullname": "Rebecca Krukover",
+                "imgUrl": "http://some-img"
+            },
+            "task": {
+                "id": "c102",
+                "title": "Demo 2"
+            }
         },
+        {
+            "id": "a103",
+            "txt": "Task Created",
+            "createdAt": 154514,
+            "byMember": {
+                "id": "u101",
+                "fullname": "Rebecca Krukover",
+                "imgUrl": "http://some-img"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Demo 3"
+            }
+        },
+        {
+            "id": "a104",
+            "txt": "Task Created",
+            "createdAt": 154514,
+            "byMember": {
+                "id": "u101",
+                "fullname": "Rebecca Krukover",
+                "imgUrl": "http://some-img"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Demo 3"
+            }
+        }
     ]
-}
-],
-"activities": [
-    {
-        "id": "a101",
-        "txt": "Changed Color",
-        "createdAt": 154514,
-        "byMember": {
-            "id": "u103",
-            "fullname": "Rebecca Krukover",
-            "imgUrl": "http://some-img"
-        },
-        "task": {
-            "id": "c101",
-            "title": "Demo 1"
-        }
-    },
-    {
-        "id": "a102",
-        "txt": "Task Created",
-        "createdAt": 154514,
-        "byMember": {
-            "id": "u103",
-            "fullname": "Rebecca Krukover",
-            "imgUrl": "http://some-img"
-        },
-        "task": {
-            "id": "c102",
-            "title": "Demo 2"
-        }
-    },
-    {
-        "id": "a103",
-        "txt": "Task Created",
-        "createdAt": 154514,
-        "byMember": {
-            "id": "u101",
-            "fullname": "Rebecca Krukover",
-            "imgUrl": "http://some-img"
-        },
-        "task": {
-            "id": "c103",
-            "title": "Demo 3"
-        }
-    },
-    {
-        "id": "a104",
-        "txt": "Task Created",
-        "createdAt": 154514,
-        "byMember": {
-            "id": "u101",
-            "fullname": "Rebecca Krukover",
-            "imgUrl": "http://some-img"
-        },
-        "task": {
-            "id": "c103",
-            "title": "Demo 3"
-        }
-    }
-]
 }]
+
 const user = {
     "_id": "u101",
     "fullname": "Abi Abambi",
@@ -682,83 +627,3 @@ const user = {
         "taskId": "t101"
     }]
 }
-
-// For Monday Mostly:
-// Dynamic Components:
-// <TaskPreview> => <tr>
-//    <td v-for="(cmpType) in cmpsOrder">
-//         <component :is="cmpType" :info="getCmpInfo(cmpType)" @updated="updateTask(cmpType, $event)">
-//    </td>
-// </tr>
-
-// function updateTask(cmpType, data) {
-//     // Switch
-//     // task.members = data;
-//     // task.status = data;
-
-//     // dispatch to store: updateTask(task, activity)
-// }
-
-
-// const cmp1 = {
-//     type: 'status-picker',
-//     info: {
-//         selectedStatus: 'pending',
-//         statuses: [{}, {}]
-//     }
-// }
-
-// const cmp2 = {
-//     type: 'member-picker',
-//     info: {
-//         selectedMembers: ['m1', 'm2'],
-//         members: ['m1', 'm2', 'm3']
-//     }
-// }
-
-// const cmp3 = {
-//     type: 'date-picker',
-//     info: {
-//         selectedDate: '2022-09-07',
-//     }
-// }
-
-
-// export function TaskPreview({ task }) {
-//     //GET FROM STORE
-//     const cmpsOrder = [
-//       "status-picker",
-//       "member-picker",
-//       "date-picker",
-//       "priority-picker",
-//     ];
-//     return (
-//       <section>
-//         <h5>{task.txt}</h5>
-//         {cmpsOrder.map((cmp, idx) => {
-//           return (
-//             <DynamicCmp
-//               cmp={cmp}
-//               key={idx}
-//               onUpdate={(data) => {
-//                 console.log("Updating: ", cmp, "with data:", data);
-//                 // make a copy, update the task
-//                 // Call action: updateTask(task)
-//               }}
-//             />
-//           );
-//         })}
-//       </section>
-//     );
-//   }
-
-// export function DynamicCmp({ cmp, info, onUpdate }) {
-//     switch (cmp) {
-//         case "status-picker":
-//             return <StatusCmp info={info} onUpdate={onUpdate} />;
-//         case "member-picker":
-//             return <MemberPicker info={info} onUpdate={onUpdate} />;
-//         default:
-//             return <p>UNKNOWN {cmp}</p>;
-//     }
-// }

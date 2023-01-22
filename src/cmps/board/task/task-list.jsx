@@ -1,14 +1,13 @@
-import { TaskPreview } from './task-preview'
-import { Droppable } from 'react-beautiful-dnd'
-import { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
-
+import { useEffect, useRef } from "react"
+import { useSelector } from "react-redux"
+import { TaskPreview } from "./task-preview"
+import { Droppable } from "react-beautiful-dnd"
 
 export const TaskList = ({ tasks, groupId, setIsScrollable }) => {
 
-    const ref = useRef()
     const board = useSelector(state => state.boardModule.board)
     const formAdd = useSelector(state => state.systemModule.formAdd)
+    const ref = useRef()
 
     useEffect(() => {
         checkScroll()
@@ -22,9 +21,10 @@ export const TaskList = ({ tasks, groupId, setIsScrollable }) => {
         setIsScrollable(ref.current.scrollHeight > ref.current.clientHeight)
     }
 
-    if (!tasks) return <div></div>
+    if (!tasks) return <div />
+
     return (
-        <div className={`task-list-container `} ref={ref}>
+        <div className="task-list-container" ref={ref}>
             <Droppable droppableId={groupId} key={groupId} type="task">
                 {provided => (
                     <ul className="task-list" ref={provided.innerRef} {...provided.droppableProps}>

@@ -34,10 +34,6 @@ export function systemReducer(state = initialState, action = {}) {
       return { ...state, dynamicModal: { ...state.dynamicModal, fromCmp: action.fromCmp } }
     case 'SET_MAIN_HEADER_HIDDEN':
       return { ...state, isMainHeaderHidden: action.boolean }
-    //   case 'LOADING_START':
-    //     return { ...state, isLoading: true }
-    //   case 'LOADING_DONE':
-    //     return { ...state, isLoading: false }
     default: return state
   }
 }

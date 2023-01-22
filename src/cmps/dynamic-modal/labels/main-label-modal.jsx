@@ -14,6 +14,7 @@ export const MainLabelModal = ({ foundLabels, searchField, labelIds, groupId, ta
     }, [])
 
     const toggleLabel = (id) => {
+        
         if (!labelIds) {
             labelIds = [id]
         }

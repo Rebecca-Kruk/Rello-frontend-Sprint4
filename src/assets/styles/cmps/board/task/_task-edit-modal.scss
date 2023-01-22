@@ -7,7 +7,6 @@
         z-index: 20;
         display: flex;
 
-
         .black-screen {
             position: fixed;
             top: 0;
@@ -17,7 +16,6 @@
             background-color: #0009;
             z-index: 19;
             cursor: pointer;
-            // pointer-events: none;
         }
 
         .btn-primary-board.edit-modal {
@@ -29,11 +27,9 @@
             justify-content: center;
         }
 
-
         .task-edit-content {
-
-
             //    background-color: $clr5;
+
             form {
                 border-radius: 3px;
                 background-color: $clr5;
@@ -51,7 +47,7 @@
             img {
                 //     height: 163.33333333333334px;
                 width: 255px;
-                //     // object-fit: contain;
+                //     object-fit: contain;
             }
 
             .edit-modal-task-details {
@@ -87,7 +83,6 @@
             // margin: 0px 7px 0 0;
             margin-right: 7px;
         }
-
     }
 
     .modal-container {

@@ -3,7 +3,6 @@
   height: 48px;
   padding: 0 6px 0 12px;
   width: 100%;
-  /* flex: 0 0 auto; */
   justify-content: center;
   transition: opacity .2s ease-in;
   border-bottom: solid 1px #d5d9df;
@@ -28,7 +27,6 @@
     gap: 8px;
     height: 300px;
 
-
     .bg-color-preview {
       width: 155px;
       margin-bottom: 10px;
@@ -40,6 +38,5 @@
       cursor: pointer;
       border-radius: 8px;
     }
-
   }
 }

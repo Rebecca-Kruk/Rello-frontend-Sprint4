@@ -1,21 +1,8 @@
-import { httpService } from './http.service'
-import { utilService } from './util.service'
-import { userService } from './user.service'
-import { socketService } from './socket.service'
-
-// This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
+import { httpService } from "./http.service"
+import { utilService } from "./util.service"
+import { socketService } from "./socket.service"
 
 const BASE_URL = 'board/'
-// const boardChannel = new BroadcastChannel('boardChannel')
-
-
-//     ; (() => {
-//         boardChannel.addEventListener('message', (ev) => {
-//             store.dispatch(ev.data)
-//         })
-//     })()
-
-// var gBoards = require('../data/board')
 
 export const boardService = {
     query,
@@ -41,11 +28,9 @@ export const boardService = {
     getBoardBackground,
     addMembersToBoard
 }
-// window.cs = boardService
 
 async function query() {
     try {
-        // return await httpService.get(BASE_URL)
         const boards = await httpService.get(BASE_URL)
         return boards
     } catch (err) {
@@ -57,7 +42,6 @@ async function query() {
 async function getBoardById(boardId) {
     try {
         return await httpService.get(BASE_URL + boardId)
-        // return axios.get(`/api/board/${boardId}`)
     } catch (err) {
         console.log('Get board by id has failed', err)
         throw err
@@ -66,6 +50,7 @@ async function getBoardById(boardId) {
 
 async function save(board) {
     var savedBoard
+
     if (board._id) {
         try {
             await httpService.put(BASE_URL + board._id, board)
@@ -74,10 +59,7 @@ async function save(board) {
             console.log('Save board has failed:', err)
             throw err
         }
-        // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
     } else {
-        // Later, owner is set by the backend
-        // board.owner = userService.getLoggedinUser()
         try {
             board = {
                 ...board,
@@ -101,7 +83,6 @@ async function save(board) {
                 }]
             }
             savedBoard = await httpService.post(BASE_URL, board)
-            // boardChannel.postMessage(getActionAddBoard(savedBoard))
         } catch (err) {
             console.log('Save board has failed:', err)
             throw err
@@ -113,22 +94,11 @@ async function save(board) {
 async function remove(boardId) {
     try {
         return await httpService.delete(BASE_URL + boardId)
-        // boardChannel.postMessage(getActionRemoveBoard(boardId))
     } catch (err) {
         console.log('Remove has failed:', err)
         throw err
     }
 }
-
-// async function updateBoard(newBoard) {
-//     try {
-//         await httpService.put(BASE_URL + newBoard._id, newBoard)
-//         return { ...newBoard }
-//     } catch (err) {
-//         console.log('UpdateBoard in board service has failed:', err)
-//         throw err
-//     }
-// }
 
 async function saveGroup(board, group) {
     try {
@@ -136,7 +106,6 @@ async function saveGroup(board, group) {
         group.createdAt = Date.now()
         group.style = { color: "#EF7564" }
         group.tasks = []
-        // group.byMember = {}
         board.groups.push(group)
         await httpService.put(BASE_URL + board._id, board)
         return { ...board }
@@ -234,6 +203,7 @@ async function moveTask(board, result) {
         const start = board.groups.find(group => group.id === droppableId)
         const finish = board.groups.find(group => group.id === destination.droppableId)
         let newGroup
+
         if (start === finish) {
             group.tasks.splice(index, 1)
             group.tasks.splice(destination.index, 0, task)
@@ -242,14 +212,13 @@ async function moveTask(board, result) {
                 ...group,
                 tasks: group.tasks
             }
-
         } else {
-
             const sourceTasks = start.tasks
             const currTask = sourceTasks.find((task, idx) => index === idx)
             sourceTasks.splice(index, 1)
             const destinationTasks = finish.tasks
             destinationTasks.splice(destination.index, 0, currTask)
+
             newGroup = {
                 ...finish,
                 tasks: destinationTasks
@@ -260,6 +229,7 @@ async function moveTask(board, result) {
             ...board,
             groups: board.groups.map(group => group.id === newGroup.id ? newGroup : group)
         }
+
         await httpService.put(BASE_URL + board._id, board)
         return newBoard
     } catch (err) {
@@ -301,6 +271,7 @@ async function addMembersToBoard(board, users) {
             delete user.createdAt
             return user
         })
+
         miniUsers.forEach(miniUser => board.members.push(miniUser))
         await httpService.put(BASE_URL + board._id, board)
         socketService.updateBoard(board._id)
@@ -351,9 +322,7 @@ async function setBoardIsStarred(miniBoards, board) {
         console.log('Set board as starred has failed:', err);
         throw err
     }
-
 }
-
 
 function getBackground(type) {
     if (type === 'url') {
@@ -385,8 +354,4 @@ function getBoardBackground(type) {
     } else if (type === 'color') {
         return ['#1f79bf', '#d29033', '#51983a', '#b04632', '#89609e', '#cd5a91', '#4bbf6b', '#2eaecc', '#838c91']
     }
-
-
 }
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

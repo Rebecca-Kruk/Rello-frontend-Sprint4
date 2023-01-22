@@ -1,18 +1,17 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadBoard, setMainHeaderHidden, updateBoardFromSocket } from '../store/board/board.actions'
-import { setIsFormAddOpen } from '../store/board/board.actions'
-import { GroupList } from '../cmps/board/group/group-list'
-import { Outlet, useParams } from 'react-router-dom'
-import { MainHeader } from '../cmps/main-header'
-import { BoardSecondaryHeader } from '../cmps/board/board-secondary-header'
-import { FormAdd } from '../cmps/board/form-add'
-import { BsPlusLg } from 'react-icons/bs'
-import { socketService } from '../services/socket.service'
-import { Loader } from '../cmps/loader'
-import { useMediaQuery } from '@mui/material'
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Outlet, useParams } from "react-router-dom"
+import { loadBoard, setMainHeaderHidden, updateBoardFromSocket } from "../store/board/board.actions"
+import { setIsFormAddOpen } from "../store/board/board.actions"
+import { socketService } from "../services/socket.service"
+import { useMediaQuery } from "@mui/material"
+import { BsPlusLg } from "react-icons/bs"
 
-// import { showSuccessMsg } from '../services/event-bus.service.js'
+import { Loader } from "../cmps/loader"
+import { MainHeader } from "../cmps/main-header"
+import { BoardSecondaryHeader } from "../cmps/board/board-secondary-header"
+import { GroupList } from "../cmps/board/group/group-list"
+import { FormAdd } from "../cmps/board/form-add"
 
 export const Board = () => {
 
@@ -45,6 +44,7 @@ export const Board = () => {
 
     const getBoardBg = () => {
         let style = {}
+
         if (board.style?.imgUrl) {
             style = {
                 background: `url(${board.style.imgUrl})`,
@@ -55,17 +55,22 @@ export const Board = () => {
                 background: board.style.bgColor
             }
         }
+
         return style
     }
 
     if (!board) return <Loader />
+
     return (
         <div className="board-layout board-page">
             {!isMainHeaderHidden && <MainHeader />}
+
             <main className="full board-layout board" style={getBoardBg()}>
                 <BoardSecondaryHeader board={board} />
+
                 <div className="group-list-container">
                     <GroupList groups={board.groups} />
+
                     {formAdd.isAddGroup
                         ? <FormAdd />
                         : <button className="btn btn-add-group" onClick={onAddGroup}>

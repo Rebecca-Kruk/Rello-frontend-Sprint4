@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { GroupPreview } from './group-preview'
-import { updateBoard, setIsFormAddOpen, movTask, handleDrag } from '../../../store/board/board.actions'
-import { FormAdd } from '../form-add'
+import { handleDrag } from '../../../store/board/board.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { utilService } from '../../../services/util.service'
+import { Loader } from '../../loader'
 
 export const GroupList = ({ groups }) => {
-    const board = useSelector(state => state.boardModule.board)
-    const formAdd = useSelector(state => state.systemModule.formAdd)
+
     const dispatch = useDispatch()
 
     const onDragEnd = (result) => {
@@ -22,7 +21,8 @@ export const GroupList = ({ groups }) => {
         dispatch(handleDrag(result))
     }
 
-    if (!groups) return <div>Loading....</div>
+    if (!groups) return <Loader />
+
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId={utilService.makeId()} direction="horizontal" type="group">
@@ -31,7 +31,8 @@ export const GroupList = ({ groups }) => {
                         {...provided.droppableProps}
                         ref={provided.innerRef}>
                         {groups.map((group, index) =>
-                            <GroupPreview key={group.id} group={group} index={index} />)}
+                            <GroupPreview key={group.id} group={group} index={index} />
+                        )}
                         {provided.placeholder}
                     </div>
                 )}

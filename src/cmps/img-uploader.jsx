@@ -1,5 +1,5 @@
-import { Component } from 'react'
-import { uploadService } from '../services/upload.service'
+import { Component } from "react"
+import { uploadService } from "../services/upload.service"
 
 export class ImgUploader extends Component {
   state = {
@@ -26,7 +26,7 @@ export class ImgUploader extends Component {
     const { imgUrl } = this.state
 
     return (
-      <div className="upload-preview"  >
+      <div className="upload-preview">
         {imgUrl && <img src={imgUrl} style={{ maxWidth: '200px', float: 'right' }} />}
         <label htmlFor="imgUpload">{this.uploadMsg}</label>
         <input type="file" onChange={this.uploadImg} accept="img/*" id="imgUpload" />

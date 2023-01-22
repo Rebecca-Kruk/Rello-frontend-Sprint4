@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { IoCloseOutline } from 'react-icons/io5'
+import { IoCloseOutline } from "react-icons/io5"
 
 export const AttachmentEditModal = ({ name, updateName, idx, toggleModal }) => {
 

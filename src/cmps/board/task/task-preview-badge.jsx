@@ -1,19 +1,16 @@
 import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { boardService } from "../../../services/board.service"
 import { utilService } from "../../../services/util.service"
 import { updateTask } from "../../../store/board/board.actions"
 
-import { FiClock } from 'react-icons/fi'
-import { GrTextAlignFull } from 'react-icons/gr'
-import { ImAttachment } from 'react-icons/im'
-import { TbCheckbox } from 'react-icons/tb'
-import { FaRegSquare } from 'react-icons/fa'
+import { FiClock } from "react-icons/fi"
+import { GrTextAlignFull } from "react-icons/gr"
+import { ImAttachment } from "react-icons/im"
+import { TbCheckbox } from "react-icons/tb"
+import { FaRegSquare } from "react-icons/fa"
 
 export const TaskPreviewBadge = ({ task, groupId }) => {
 
-    const board = useSelector(state => state.boardModule.board)
-    const { dueDate, memberIds, description, attachments, checklists } = task
+    const { dueDate, description, attachments, checklists } = task
     const dispatch = useDispatch()
 
     const getTotalTasks = () => {
@@ -25,11 +22,13 @@ export const TaskPreviewBadge = ({ task, groupId }) => {
         }, 0)
 
         let counter = 0
+
         checklists.map(checklist => {
             checklist.todos.map(todo => {
                 if (todo.isDone) counter++
             })
         })
+
         return counter + '/' + length
     }
 
@@ -67,10 +66,9 @@ export const TaskPreviewBadge = ({ task, groupId }) => {
                     <div className="task-date" style={getDateStyle()} onClick={toggleIsDone}>
                         <FiClock className="clock-badge" />
 
-                        {dueDate.isDone ?
-                            <TbCheckbox className="checklist-badge" />
-                            :
-                            <FaRegSquare className="checklist-badge-empty" />
+                        {dueDate.isDone
+                            ? <TbCheckbox className="check-badge" />
+                            : <FaRegSquare className="check-badge-empty" />
                         }
 
                         <span className="task-date-time">{utilService.formatMonthDay(dueDate.ms)}</span>
@@ -94,16 +92,6 @@ export const TaskPreviewBadge = ({ task, groupId }) => {
                         <span className="checklist-count">{getTotalTasks()}</span>
                     </div>
                 }
-            </div>
-
-            <div className="member-avatar-list">
-                {memberIds &&
-                    memberIds.map(memberId => (
-                        <img key={memberId}
-                            src={boardService.getMemberImgUrl(board, memberId)}
-                            alt="profile img"
-                        />
-                    ))}
             </div>
         </div>
     )

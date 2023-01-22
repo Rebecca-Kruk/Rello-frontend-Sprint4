@@ -13,13 +13,9 @@
 @import "pages/home";
 @import "pages/board";
 @import "pages/login-signup";
-@import "pages/user-profile";
 @import "pages/template-page";
 
 // Components
-@import "cmps/app-footer";
-@import "cmps/user-msg";
-@import "cmps/img-uploader";
 @import "cmps/main-header";
 @import "cmps/user-modal";
 @import "cmps/loader";
@@ -31,17 +27,13 @@
 @import "cmps/home/home-hero";
 
 // template-page
-@import "cmps/template-page/template-list";
-@import "cmps/template-page/template-preview";
 @import "cmps/template-page/add-board-modal";
 
 // board
 @import "cmps/board/board-secondary-header";
 @import "cmps/board/board-side-menu";
-@import "cmps/board/board-menu";
 @import "cmps/board/board_bg_img_list";
 @import "cmps/board/board_bg_color_list";
-@import "cmps/board/board-side-nav";
 @import "cmps/board/board-members-modal";
 @import "cmps/board/form-add.scss";
 // board/group
@@ -51,10 +43,10 @@
 // board/task
 @import "cmps/board/task/task-list";
 @import "cmps/board/task/task-edit-modal";
-@import "cmps/board/task/task-filter";
 @import "cmps/board/task/task-preview";
 @import "cmps/board/task/task-preview-labels";
 @import "cmps/board/task/task-preview-badge";
+@import "cmps/board/task/task-preview-members";
 
 // task-details
 @import "cmps/task-details/task-details";
@@ -90,8 +82,3 @@
 
 // login signup
 @import "cmps/login-signup/login-signup-header";
-
-// user-profile
-@import "cmps/user-profile/user-header";
-@import "cmps/user-profile/user-hero";
-@import "cmps/user-profile/user-edit";

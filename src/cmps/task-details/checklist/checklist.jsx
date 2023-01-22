@@ -2,8 +2,8 @@ import { useState } from "react"
 import { ChecklistProgressBar } from "./checklist-progress-bar"
 import { TodoList } from "./todo-list"
 
-import { TbCheckbox } from 'react-icons/tb'
-import { IoCloseOutline } from 'react-icons/io5'
+import { TbCheckbox } from "react-icons/tb"
+import { IoCloseOutline } from "react-icons/io5"
 
 export const Checklist = ({ checklist, updateChecklists, removeChecklist }) => {
 

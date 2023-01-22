@@ -7,9 +7,9 @@ import { updateBoardLabels, updateTask } from "../../../store/board/board.action
 import { EditLabelModal } from "./edit-label-modal"
 import { DeleteLabelModal } from "./delete-label-modal"
 
-import { faLessThan } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IoCloseOutline } from 'react-icons/io5'
+import { faLessThan } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { IoCloseOutline } from "react-icons/io5"
 import { MainLabelModal } from "./main-label-modal"
 
 export const LabelsModalContainer = ({ groupId, taskId, closeModal, className }) => {
@@ -41,11 +41,9 @@ export const LabelsModalContainer = ({ groupId, taskId, closeModal, className })
     }
 
     const toggleModal = (type, label) => {
-        if (type === 'edit') {
 
-            if (!label?.color) {
-                label = { color: '#7BC86C', title: '' }
-            }
+        if (type === 'edit' && !label?.color) {
+            label = { color: '#7BC86C', title: '' }
         }
 
         setCurrLabel(label)

@@ -1,6 +1,7 @@
-import loginLogo from '../../assets/img/login-logo.svg'
+import loginLogo from "../../assets/img/login-logo.svg"
 
 export const LoginSignupHeader = () => {
+
     return (
         <header className="login-signup-header">
             <div className="logo">

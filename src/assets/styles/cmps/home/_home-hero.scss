@@ -20,12 +20,9 @@
 
         }
     }
-
 }
 
 @include for-mobile-layout {
-
-    //<480px
     .home-hero {
         flex-direction: column;
 
@@ -55,20 +52,13 @@
             max-height: 420px;
             margin-left: 0;
             object-fit: contain;
-            // padding: 8rem 1rem 1rem;
         }
     }
-
 }
 
-
-
 @include for-narrow-layout {
-
-    //     //520px
     .home-hero {
         flex-direction: column;
-        // flex-wrap: wrap;
         align-items: center;
 
         .hero-text {
@@ -97,15 +87,11 @@
             max-height: 420px;
             margin-left: 0;
             object-fit: contain;
-            // padding: 8rem 1rem 1rem;
         }
     }
-
 }
 
 @include for-normal-layout {
-
-    //760px
     .home-hero {
         flex-direction: row;
 
@@ -119,13 +105,11 @@
 
             .hero-paragraph {
                 margin-bottom: 40px;
-
             }
 
             .btn-primary-home {
                 padding: 0.8125em 1em
             }
-
         }
 
         .hero-img {
@@ -133,12 +117,9 @@
             order: 2;
         }
     }
-
 }
 
 @include for-wide-layout {
-
-    //1000px
     .home-hero {
         .hero-text {
             .hero-title {

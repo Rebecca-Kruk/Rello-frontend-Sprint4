@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux"
 import { boardService } from "../../services/board.service"
 import { updateTask } from "../../store/board/board.actions"
 
-import { IoCloseOutline } from 'react-icons/io5'
-import { HiCheck } from 'react-icons/hi'
+import { IoCloseOutline } from "react-icons/io5"
+import { HiCheck } from "react-icons/hi"
 
 export const MembersModal = ({ groupId, taskId, closeModal, className }) => {
 
@@ -38,6 +38,7 @@ export const MembersModal = ({ groupId, taskId, closeModal, className }) => {
     }
 
     const toggleMember = (id) => {
+
         if (!memberIds) {
             memberIds = [id]
         }
@@ -70,33 +71,31 @@ export const MembersModal = ({ groupId, taskId, closeModal, className }) => {
                     value={name} onChange={filter}
                 />
 
-                {members &&
-                    (foundUsers?.length > 0
-                        ?
-                        <ul className="member-list">
-                            <h6>Board members</h6>
+                {members && foundUsers?.length > 0
+                    ?
+                    <ul className="member-list">
+                        <h6>Board members</h6>
 
-                            {foundUsers.map(member => {
-                                const { _id, fullName, imgUrl } = member
+                        {foundUsers.map(member => {
+                            const { _id, fullName, imgUrl } = member
 
-                                return (
-                                    <li key={_id} onClick={() => toggleMember(_id)}>
-                                        <img src={imgUrl} title={fullName} alt="user-avatar" />
-                                        <span className="fullname">{fullName}</span>
+                            return (
+                                <li key={_id} onClick={() => toggleMember(_id)}>
+                                    <img src={imgUrl} title={fullName} alt="user-avatar" />
+                                    <span className="fullname">{fullName}</span>
 
-                                        {memberIds && memberIds.includes(_id) &&
-                                            <HiCheck className="icon-check" />
-                                        }
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                        :
-                        <p>
-                            Looks like that person isn't a member yet.
-                            Enter their email address to add them to the card and board.
-                        </p>
-                    )
+                                    {memberIds && memberIds.includes(_id) &&
+                                        <HiCheck className="icon-check" />
+                                    }
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    :
+                    <p>
+                        Looks like that person isn't a member yet.
+                        Enter their email address to add them to the card and board.
+                    </p>
                 }
 
                 {!members && <p>There are no available members in this board.</p>}

@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { Attachment } from './attachment'
-import { setDynamicModal, updateTask } from '../../../store/board/board.actions'
-import { DynamicModal } from '../../dynamic-modal/dynamic-modal'
-import { useMediaQuery } from '@mui/material'
-import { ImAttachment } from 'react-icons/im'
+import { useDispatch } from "react-redux"
+import { useParams } from "react-router-dom"
+import { Attachment } from "./attachment"
+import { setDynamicModal, updateTask } from "../../../store/board/board.actions"
+import { DynamicModal } from "../../dynamic-modal/dynamic-modal"
+import { useMediaQuery } from "@mui/material"
+import { ImAttachment } from "react-icons/im"
 
 export const AttachmentList = ({ attachments, dynamicModal }) => {
 

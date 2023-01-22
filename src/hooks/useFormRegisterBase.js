@@ -16,7 +16,7 @@ export const useFormRegisterBase = (initialState, callBack) => {
 
     const register = (field, type) => {
         return {
-            name: field, 
+            name: field,
             id: field,
             onChange: handleChange,
             type,

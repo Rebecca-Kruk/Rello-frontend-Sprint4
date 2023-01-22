@@ -1,5 +1,5 @@
-import io from 'socket.io-client'
-import { httpService } from './http.service'
+import io from "socket.io-client"
+import { httpService } from "./http.service"
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030/'
 export const socketService = createSocketService()
@@ -17,6 +17,7 @@ const SOCKET_EMIT_SET_BOARD = 'set-board'
 
 function createSocketService() {
   let socket = null
+
   const socketService = {
     async setup() {
       if (socket) return
@@ -32,10 +33,6 @@ function createSocketService() {
       if (!socket) await socketService.setup()
       socket.emit(SOCKET_EMIT_SET_BOARD, boardId)
     },
-    // async updateBoards() {
-    //   if (!socket) await socketService.setup()
-    //   socket.emit(SOCKET_EMIT_UPDATE_BOARDS)
-    // },
     async on(eventName, cb) {
       if (!socket) await socketService.setup()
       socket.on(eventName, cb)
@@ -58,5 +55,6 @@ function createSocketService() {
       socketIsReady = false
     }
   }
+
   return socketService
 }

@@ -1,21 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { setModalTaskId } from '../../../store/board/board.actions'
-import { BiPencil } from 'react-icons/bi'
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { setModalTaskId } from "../../../store/board/board.actions"
+import { BiPencil } from "react-icons/bi"
 
-import { Loader } from '../../loader'
-import { Draggable } from 'react-beautiful-dnd'
-import { TaskEditModal } from './task-edit-modal'
-import { TaskPreviewBadge } from './task-preview-badge'
-import { TaskPreviewLabels } from './task-preview-labels'
+import { Loader } from "../../loader"
+import { Draggable } from "react-beautiful-dnd"
+import { TaskEditModal } from "./task-edit-modal"
+import { TaskPreviewBadge } from "./task-preview-badge"
+import { TaskPreviewLabels } from "./task-preview-labels"
+import { TaskPreviewMembers } from "./task-preview-members"
 
 export const TaskPreview = ({ task, groupId, index }) => {
 
     const board = useSelector(state => state.boardModule.board)
     const modalTaskId = useSelector(state => state.systemModule.modalTaskId)
-    const { cover, title, dueDate, labelIds, memberIds, description, attachments, id } = task
+    const { id, cover, title, description, attachments, dueDate, labelIds, memberIds } = task
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const openTaskDetails = () => {
+        navigate(`/board/${board._id}/group/${groupId}/task/${id}`)
+    }
 
     const openTaskEditModal = (ev) => {
         ev.stopPropagation()
@@ -27,21 +32,18 @@ export const TaskPreview = ({ task, groupId, index }) => {
         dispatch(setModalTaskId(null))
     }
 
-    const openTaskDetails = () => {
-        navigate(`/board/${board._id}/group/${groupId}/task/${id}`)
-    }
-
     const isBadge = () => {
         if (dueDate || description || memberIds || attachments) return true
-        else return false
+        return false
     }
 
     if (!task) return <Loader />
+
     return (
         <Draggable key={id} draggableId={id} index={index} isDragDisabled={modalTaskId !== null}>
             {(provided) => (
 
-                <section
+                <div
                     className="task-preview-container"
                     onClick={openTaskDetails}
                     {...provided.draggableProps}
@@ -59,33 +61,35 @@ export const TaskPreview = ({ task, groupId, index }) => {
 
                     <div className="task-preview">
                         {cover &&
-                            (cover.img ?
-                                <img className="task-cover-img" src={cover.img} alt="cover" />
-                                :
-                                <div className="task-cover-color" style={{ background: `${cover.color}` }} />
+                            (cover.img
+                                ? <img className="task-cover" src={cover.img} alt="cover" />
+                                : <div className="task-cover task-cover-color" style={{ background: `${cover.color}` }} />
                             )
                         }
 
-                        <div className="task-preview-details">
-                            <button
-                                className={cover ? "btn task-edit-icon on-cover" : "btn task-edit-icon"}
-                                onClick={openTaskEditModal}
-                            >
-                                <BiPencil />
-                            </button>
+                        <button className="task-edit-icon" onClick={openTaskEditModal}>
+                            <BiPencil />
+                        </button>
 
+                        <div className="task-preview-details">
                             {labelIds &&
                                 <TaskPreviewLabels board={board} groupId={groupId} taskId={task.id} />
                             }
 
-                            <div className="task-title">{title}</div>
+                            <div className="task-preview-title">{title}</div>
 
-                            {isBadge() &&
-                                <TaskPreviewBadge task={task} groupId={groupId} />
-                            }
+                            <div className="badge-wrapper">
+                                {isBadge() &&
+                                    <TaskPreviewBadge task={task} groupId={groupId} />
+                                }
+
+                                {memberIds?.length > 0 &&
+                                    <TaskPreviewMembers board={board} memberIds={memberIds} />
+                                }
+                            </div>
                         </div>
                     </div>
-                </section >
+                </div >
             )}
         </Draggable>
     )

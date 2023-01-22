@@ -50,7 +50,6 @@
             height: 48px;
             padding: 0 6px 0 12px;
             width: 100%;
-            /* flex: 0 0 auto; */
             justify-content: center;
             transition: opacity .2s ease-in;
             border-bottom: solid 1px #d5d9df;
@@ -68,7 +67,6 @@
 
         .menu-main-content {
             padding-top: 12px;
-
 
             .btn-menu-action {
                 background-color: initial;
@@ -103,7 +101,6 @@
                         font-size: rem(14px);
                         text-align: center;
                     }
-
                 }
 
                 .board-bg-img-tile {
@@ -142,8 +139,6 @@
                 font-size: rem(14px);
                 font-family: san-francisco-medium, sans-serif;
 
-
-
                 .activity-list-icon {
                     position: absolute;
                     left: 0px;
@@ -152,5 +147,4 @@
             }
         }
     }
-
 }

@@ -1,20 +1,8 @@
-import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
-import { userService } from './user.service.js'
-
-// This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
+import { storageService } from "./async-storage.service.js"
+import { utilService } from "../util.service.js"
+import { userService } from "../user.service.js"
 
 const STORAGE_KEY = 'board'
-// const boardChannel = new BroadcastChannel('boardChannel')
-
-
-//     ; (() => {
-//         boardChannel.addEventListener('message', (ev) => {
-//             store.dispatch(ev.data)
-//         })
-//     })()
-
-// var gBoards = require('../data/board')
 
 export const boardServiceLocal = {
     query,
@@ -34,7 +22,6 @@ export const boardServiceLocal = {
     getTaskMembers,
     getTaskLabels
 }
-// window.cs = boardService
 
 function query(filterBy) {
     return storageService.query(STORAGE_KEY)
@@ -42,27 +29,23 @@ function query(filterBy) {
 
 function getBoardById(boardId) {
     return storageService.get(STORAGE_KEY, boardId)
-    // return axios.get(`/api/board/${boardId}`)
 }
 
 async function save(board) {
     var savedBoard
+
     if (board._id) {
         savedBoard = await storageService.put(STORAGE_KEY, board)
-        // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
-
     } else {
-        // Later, owner is set by the backend
         board.owner = userService.getLoggedinUser()
         savedBoard = await storageService.post(STORAGE_KEY, board)
-        // boardChannel.postMessage(getActionAddBoard(savedBoard))
     }
+
     return savedBoard
 }
 
 async function remove(boardId) {
     await storageService.remove(STORAGE_KEY, boardId)
-    // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
 async function updateBoard(newBoard) {
@@ -82,7 +65,6 @@ async function saveGroup(board, group) {
         group.createdAt = Date.now()
         group.style = { color: "#EF7564" }
         group.tasks = []
-        // group.byMember = {}
         board.groups.push(group)
         const newBoard = await storageService.put(STORAGE_KEY, board)
         console.log('newBoard:', newBoard)
@@ -185,6 +167,3 @@ function getTaskLabels(board, groupId, taskId) {
     const labelIds = getTask(board, groupId, taskId).labelIds
     return board.labels.filter(label => labelIds.includes(label.id))
 }
-
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

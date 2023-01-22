@@ -11,7 +11,6 @@ import { TbCheckbox } from "react-icons/tb"
 import { MdOutlineWatchLater } from "react-icons/md"
 import { ImAttachment } from "react-icons/im"
 import { FiCreditCard } from "react-icons/fi"
-import { VscArchive } from "react-icons/vsc"
 
 export const TaskSideBar = ({ dynamicModal }) => {
 
@@ -66,12 +65,6 @@ export const TaskSideBar = ({ dynamicModal }) => {
                         </div>
                     )
                 })}
-
-                {/* Archive button not working for now(and with this button the amount is odd) */}
-                {/* <button>
-                    <span className="icon"><VscArchive /></span>
-                    <span className="sidebar-cmp">Archive</span>
-                </button> */}
             </div>
         </div>
     )

@@ -7,8 +7,6 @@
     .group-list {
         height: 100%;
         align-items: flex-start;
-
-
     }
 
     .btn-add-group {
@@ -31,8 +29,6 @@
             background-color: $clr22;
         }
     }
-
-
 }
 
 @include for-mobile-layout {

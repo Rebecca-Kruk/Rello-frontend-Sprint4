@@ -1,6 +1,6 @@
-import { boardService } from "../../services/board.service.js";
-import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { socketService } from "../../services/socket.service.js";
+import { boardService } from "../../services/board.service.js"
+import { showSuccessMsg, showErrorMsg } from "../../services/event-bus.service.js"
+import { socketService } from "../../services/socket.service.js"
 
 export function loadBoards() {
     return async (dispatch) => {
@@ -35,7 +35,6 @@ export function addBoard(board) {
         } catch (err) {
             console.log('Cannot add board', err)
         }
-
     }
 }
 
@@ -43,8 +42,7 @@ export function removeBoard(boardId) {
     return async (dispatch) => {
         try {
             await boardService.remove(boardId)
-            console.log('Deleted Successfully!');
-            // dispatch(getActionRemoveBoard(boardId))
+            console.log('Deleted Successfully!')
             showSuccessMsg('Board removed')
         } catch (err) {
             showErrorMsg('Cannot remove board')
@@ -56,7 +54,6 @@ export function removeBoard(boardId) {
 export function updateBoard(board) {
     return async (dispatch, getState) => {
         try {
-            // const board = getState().boardModule.board
             const updatedBoard = await boardService.save(board)
             dispatch({ type: 'UPDATE_BOARD', updatedBoard })
             socketService.updateBoard(board._id)
@@ -168,7 +165,7 @@ export function removeTask(groupId, taskId) {
         try {
             const board = getState().boardModule.board
             const updatedBoard = await boardService.removeTask(board, groupId, taskId)
-            console.log('Deleted Successfully!');
+            console.log('Deleted Successfully!')
             dispatch({ type: 'UPDATE_BOARD', updatedBoard })
             showSuccessMsg('Task removed')
         } catch (err) {
@@ -271,29 +268,3 @@ export function setMainHeaderHidden(boolean) {
         dispatch({ type: 'SET_MAIN_HEADER_HIDDEN', boolean })
     }
 }
-
-// Demo for Optimistic Mutation
-// (IOW - Assuming the server call will work, so updating the UI first)
-// export function onRemoveBoardOptimistic(boardId) {
-
-//     return (dispatch, getState) => {
-
-//         dispatch({
-//             type: 'REMOVE_CAR',
-//             boardId
-//         })
-//         showSuccessMsg('Board removed')
-
-//         boardService.remove(boardId)
-//             .then(() => {
-//                 console.log('Server Reported - Deleted Succesfully');
-//             })
-//             .catch(err => {
-//                 showErrorMsg('Cannot remove board')
-//                 console.log('Cannot load boards', err)
-//                 dispatch({
-//                     type: 'UNDO_REMOVE_CAR',
-//                 })
-//             })
-//     }
-// }

@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import homeLogo from '../../assets/img/home-logo.svg'
-import { UserModal } from '../user-modal'
-// import { useRouteMatch } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import homeLogo from "../../assets/img/home-logo.svg"
+import { UserModal } from "../user-modal"
 
 export const HomeHeader = () => {
 
@@ -29,16 +28,18 @@ export const HomeHeader = () => {
                 <img src={homeLogo} alt="logo" />
                 Rello
             </Link>
-            {user
-                ? <button className="btn avatar-btn" onClick={toggleUserModal}>
+
+            {user ?
+                <button className="btn avatar-btn" onClick={toggleUserModal}>
                     <img src={user.imgUrl} alt="user avatar" className="avatar" />
                 </button>
-                : <div className="flex header-links">
+                :
+                <div className="flex header-links">
                     <Link to='login' className="login-link">Log in</Link>
                     <Link to='/template' className="btn btn-wide">Get Rello for free</Link>
-                </div>}
+                </div>
+            }
             {isUserModalOpen && <UserModal toggleUserModal={toggleUserModal} />}
         </header>
     )
 }
-

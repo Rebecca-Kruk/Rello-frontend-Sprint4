@@ -5,7 +5,6 @@
 
     .home-features-content {
         padding: 1rem;
-
     }
 
     .features-title {
@@ -14,16 +13,13 @@
         font-weight: 500;
         padding-bottom: 1rem;
         margin-bottom: 8px;
-        color: #091e42;
-
+        color: $clr7;
     }
 
     .features-main-paragraph {
-        // justify-self: flex-start;
         font-size: rem(20px);
         font-family: charlie-text-semibold, sans-serif;
-        color: #091e42;
-
+        color: $clr7;
     }
 
     .features-details-container {
@@ -31,7 +27,6 @@
 
         .feature-content {
             padding: 1rem;
-
         }
 
         .feature-img {
@@ -39,14 +34,13 @@
         }
 
         .feature-title {
-            color: #091e42;
+            color: $clr7;
             font-weight: 500;
             margin-bottom: 0.5rem;
             font-size: 1rem;
             line-height: 1.25;
             text-transform: uppercase;
             font-family: charlie-text-semibold, sans-serif;
-
         }
 
         .feature-paragraph {
@@ -54,13 +48,10 @@
             font-size: rem(20px);
             font-family: charlie-text-semibold, sans-serif;
             color: rgb(94, 108, 132);
-            ;
             margin-bottom: rem(24px);
-
         }
 
         .feature2-container {
-            // display: flex;
             margin-top: 4rem;
         }
     }
@@ -68,11 +59,7 @@
 
 
 @include for-mobile-layout {
-
-    //<480px
     .home-features-container {
-        // display: flex;
-        // flex-wrap: wrap;
         margin-top: 100px;
 
         .home-features-content {
@@ -90,7 +77,6 @@
             font-size: rem(24px);
         }
 
-
         .feature1-container {
             flex-direction: column;
             text-align: center;
@@ -102,7 +88,6 @@
             width: 100%;
             text-align: center;
             order: 2;
-
 
             .feature-img {
                 order: 1;
@@ -132,10 +117,7 @@
     }
 }
 
-
 @include for-narrow-layout {
-
-    //520px
     .feature-content {
         width: 100%;
         order: 2;
@@ -145,13 +127,10 @@
         width: 90%;
         order: 1;
     }
-
 }
 
 
 @include for-normal-layout {
-
-    //760px
     .home-features-content {
         flex-direction: row;
         width: 50%;
@@ -183,6 +162,7 @@
         .feature2-container {
             display: flex;
             flex-direction: row;
+
             .feature-content {
                 order: 1;
                 width: 60%;
@@ -195,9 +175,4 @@
             }
         }
     }
-}
-
-
-@include for-wide-layout {
-    //1000px
 }

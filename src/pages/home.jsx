@@ -1,8 +1,7 @@
-// import { AppFooter } from '../cmps/app-footer'
-import { HomeDemonstration } from '../cmps/home/home-demonstration'
-import { HomeFeatures } from '../cmps/home/home-features'
-import { HomeHeader } from '../cmps/home/home-header'
-import { HomeHero } from '../cmps/home/home-hero'
+import { HomeHeader } from "../cmps/home/home-header"
+import { HomeHero } from "../cmps/home/home-hero"
+import { HomeDemonstration } from "../cmps/home/home-demonstration"
+import { HomeFeatures } from "../cmps/home/home-features"
 
 export const Home = () => {
 
@@ -12,7 +11,6 @@ export const Home = () => {
             <HomeHero />
             <HomeDemonstration />
             <HomeFeatures />
-            {/* <AppFooter /> */}
         </div>
     )
 }

@@ -18,8 +18,8 @@
             display: flex;
             align-items: center;
             height: 24px;
-            margin: 0 10px 4px 0;
-            padding: 5px;
+            margin-right: 10px;
+            padding: 5px 6px;
             border-radius: 3px;
             font-size: rem(11px);
 
@@ -29,13 +29,13 @@
                 line-height: 1px;
             }
 
-            .checklist-badge-empty {
+            .check-badge-empty {
                 display: none;
                 font-size: rem(12px);
                 margin: 0 4.5px 0 1.5px;
             }
 
-            .checklist-badge {
+            .check-badge {
                 display: none;
                 font-size: rem(14.5px);
                 margin-right: 3.5px;
@@ -52,8 +52,8 @@
                     display: none;
                 }
 
-                .checklist-badge,
-                .checklist-badge-empty {
+                .check-badge,
+                .check-badge-empty {
                     display: flex;
                 }
             }
@@ -91,23 +91,10 @@
             }
         }
     }
-
-    .member-avatar-list {
-
-        img {
-            width: rem(28px);
-            border-radius: 50%;
-            margin: 0 0 4px 4px;
-        }
-    }
 }
 
 @include for-mobile-layout {
     .task-badge-container {
         align-items: self-start;
-
-        .member-avatar {
-            margin: 2px 0 0px 4px;
-        }
     }
 }

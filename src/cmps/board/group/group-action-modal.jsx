@@ -1,6 +1,7 @@
-import { IoCloseOutline } from 'react-icons/io5'
-import { useDispatch } from 'react-redux'
-import { duplicateGroup } from '../../../store/board/board.actions'
+import { useDispatch } from "react-redux"
+import { duplicateGroup } from "../../../store/board/board.actions"
+import { IoCloseOutline } from "react-icons/io5"
+
 export const GroupActionModal = ({ groupId, onRemoveGroup, openAddForm }) => {
 
     const dispatch = useDispatch()
@@ -15,13 +16,16 @@ export const GroupActionModal = ({ groupId, onRemoveGroup, openAddForm }) => {
                 <span className="title">List actions</span>
                 <button className="btn close-icon"><IoCloseOutline /></button>
             </header>
+
             <ul className="btns-list">
                 <li className="btn-action-container">
                     <button className="btn btn-action" onClick={() => openAddForm(true)}>Add card...</button>
                 </li>
+
                 <li className="btn-action-container">
                     <button className="btn btn-action" onClick={onRemoveGroup}>Delete list...</button>
                 </li>
+
                 <li className="btn-action-container">
                     <button className="btn btn-action" onClick={onDuplicateGroup}>Copy list...</button>
                 </li>

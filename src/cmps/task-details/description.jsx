@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { updateTask } from "../../store/board/board.actions"
-import { GrTextAlignFull } from 'react-icons/gr'
+import { GrTextAlignFull } from "react-icons/gr"
 
 export const Description = ({ description }) => {
 
@@ -19,6 +19,7 @@ export const Description = ({ description }) => {
     const onFocus = () => setFocused(true)
 
     const onBlur = (ev) => {
+
         if (!ev.relatedTarget || ev.relatedTarget.className === 'save-btn') {
             dispatch(updateTask(groupId, taskId, 'description', updatedDescription))
         } else {
@@ -37,6 +38,7 @@ export const Description = ({ description }) => {
     }
 
     const handleTexteareaHeight = (ev) => {
+        
         if (ev.target) {
             ev.target.style.height = 'inherit'
             ev.target.style.height = `${ev.target.scrollHeight}px`

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { IoCloseOutline } from 'react-icons/io5'
-import { HiOutlineDotsHorizontal } from 'react-icons/hi'
+import { IoCloseOutline } from "react-icons/io5"
+import { HiOutlineDotsHorizontal } from "react-icons/hi"
 
 export const Todo = ({ todo, updateTodos, removeTodo }) => {
 
